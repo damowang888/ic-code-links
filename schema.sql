@@ -1,0 +1,23 @@
+CREATE TABLE IF NOT EXISTS aliases (
+  alias TEXT PRIMARY KEY,
+  token_hash TEXT NOT NULL UNIQUE,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS messages (
+  id TEXT PRIMARY KEY,
+  alias TEXT NOT NULL REFERENCES aliases(alias) ON DELETE CASCADE,
+  sender TEXT NOT NULL,
+  subject TEXT NOT NULL,
+  code TEXT,
+  snippet TEXT NOT NULL,
+  received_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS idx_messages_alias_time ON messages(alias, received_at DESC);
+
+CREATE TABLE IF NOT EXISTS unmatched (
+  id TEXT PRIMARY KEY,
+  reason TEXT NOT NULL,
+  candidates TEXT NOT NULL,
+  received_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

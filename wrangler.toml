@@ -1,12 +1,11 @@
 name = "ic-code-links"
-main = "b7608197-b544-422d-a3aa-cb36e505b289"
+main = "worker.js"
 compatibility_date = "2026-09-01"
 
-# Run `npx wrangler d1 create ic-code-links`, then paste its database_id below.
 [[d1_databases]]
 binding = "DB"
 database_name = "ic-code-links"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "b7608197-b544-422d-a3aa-cb36e505b289"
 
 [triggers]
 crons = ["0 3 * * *"]

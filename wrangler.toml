@@ -1,5 +1,5 @@
 name = "ic-code-links"
-main = "worker.js"
+main = "b7608197-b544-422d-a3aa-cb36e505b289"
 compatibility_date = "2026-09-01"
 
 # Run `npx wrangler d1 create ic-code-links`, then paste its database_id below.
